@@ -1,3 +1,14 @@
+terraform {
+  backend "s3" {
+    bucket = "tisauro-terraform-running-state"
+    key = "stage/simple_http_server/terraform.tfstate"
+    region = "eu-west-2"
+
+    dynamodb_table = "terraform-state-locks"
+    encrypt = true
+  }
+}
+
 # Variable definition
 variable "app_server_port" {
   description = "App Server Port"
