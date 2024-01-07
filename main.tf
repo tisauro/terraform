@@ -12,3 +12,10 @@ terraform {
 provider "aws" {
   region = "eu-west-2"
 }
+
+# Variable definition
+variable "app_server_port" {
+  description = "App Server Port"
+  type        = number
+  default     = 8080
+}

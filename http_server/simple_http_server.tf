@@ -1,9 +1,5 @@
-# Variable definition
-variable "app_server_port" {
-  description = "App Server Port"
-  type        = number
-  default     = 8080
-}
+
+
 
 resource "aws_instance" "app_server" {
   ami           = "ami-0e5f882be1900e43b"

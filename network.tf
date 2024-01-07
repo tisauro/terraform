@@ -1,9 +1,17 @@
 resource "aws_vpc" "test_vpc" {
   cidr_block       = "10.0.0.0/16"
   instance_tenancy = "default"
+
   tags = {
     project = "terraform",
     Name    = "test-vpc"
+  }
+}
+
+resource "aws_internet_gateway" "vpc_test_ig" {
+  vpc_id = aws_vpc.test_vpc.id
+  tags = {
+    Name = "VPC Test IG"
   }
 }
 
@@ -41,6 +49,12 @@ resource "aws_subnet" "private_2c" {
     Name = "private-sub-2c"
   }
 }
+
+#resource "aws_nat_gateway" "vpc_test_nat" {
+#  allocation_id = ""
+#  subnet_id     = ""
+#}
+
 
 resource "aws_subnet" "public_2a" {
   vpc_id            = aws_vpc.test_vpc.id
