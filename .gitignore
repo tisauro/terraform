@@ -4,3 +4,5 @@
 /stage/terraform.tfstate.backup
 /.idea/
 /global/state_file_storage_backend/.terraform/
+/stage/vpc/.terraform/
+/stage/simple_http_server/.terraform/
